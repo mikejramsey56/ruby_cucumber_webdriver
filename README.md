@@ -23,7 +23,7 @@ World contains module JavaScriptPageLoadHelpers.  It currently contains two meth
 Optional arugment timeout - number of seconds to wait for jQuery activity to complete.  Default is 30 seconds.  
 E.g. wait_for_jquery(timeout: 20)
 <h4>wait_for_page_load_to_complete</h4>
-<Optional arugment timeout - number of seconds to wait for document.readyState == "complete".  Default is 30 seconds.  
+Optional arugment timeout - number of seconds to wait for document.readyState == "complete".  Default is 30 seconds.  
 E.g. wait_for_page_load_to_complete(timeout: 60)
 
 The plan is to add additional methods to support waiting for JavaScript to complete for the **Angular** and **Prototype** (Ajax) frameworks
