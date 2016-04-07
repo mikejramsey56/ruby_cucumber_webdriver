@@ -28,5 +28,17 @@ E.g. wait_for_page_load_to_complete(timeout: 60)
 
 The plan is to add additional methods to support waiting for JavaScript to complete for the **Angular** and **Prototype** (Ajax) frameworks
 
+###cucumber.yml###
+
+A cucumber.yml file was created in the .config directory.  It currently defines one profile **html_report**.  To execute this profile enter:
+
+    cucumber --profile html_report
+
+This generate the following command:
+
+    cucumber --format progress --format html --out=features_report.html
+	
+The user is encouraged to add additional command line shortcuts to cucumber.yml
+
 
 
