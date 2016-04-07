@@ -14,3 +14,19 @@ Download the zip file and expand into whatever folder you want.  Rename the high
     bundle install
 
 to install the necessary ruby gems.
+
+###JavaScript and page load support###
+
+World contains module JavaScriptPageLoadHelpers.  It currently contains two methods:
+
+<h2>wait_for_jquery 
+<h3>Optional arugment timeout - number of seconds to wait for jQuery activity to complete.  Default is 30 seconds.  
+<h4>E.g. wait_for_jquery(timeout: 20)
+<h2>wait_for_page_load_to_complete
+<h3>Optional arugment timeout - number of seconds to wait for document.readyState == "complete" activity to complete.  Default is 30 seconds.  
+<h4>E.g. wait_for_page_load_to_complete(timeout: 60)
+
+The plan is to add additional methods to support waiting for JavaScript to complete for the **Angular** and **Prototype** ((Ajax)) frameworks
+
+
+

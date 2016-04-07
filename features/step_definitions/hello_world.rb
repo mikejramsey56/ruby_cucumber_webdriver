@@ -1,5 +1,7 @@
 Given(/^I am on the google search page$/) do
   visit 'http://www.google.com/advanced_search?hl=en'
+  wait_for_jquery(timeout: 20)
+  wait_for_page_load_to_complete(timeout: 20)
 end
 
 When(/^I search for "(.*)"$/) do |query|
