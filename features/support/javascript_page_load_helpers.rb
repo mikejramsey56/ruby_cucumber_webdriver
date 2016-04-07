@@ -12,7 +12,7 @@ module JavaScriptPageLoadHelpers
 	end
 	
 	def wait_for_prototype_ajax(options = {})
-	    wait_for("return Ajax.activeRequestCount", "0", options)
+	    wait_for("return Ajax.activeRequestCount;", "0", options)
 	end
 	
 	def wait_for_Yahoo_UI(options = {})
@@ -25,8 +25,10 @@ module JavaScriptPageLoadHelpers
 		expect(wait.until {
 		  begin
 		    outcome = page.execute_script(javascript_string)
+			puts "outcome=" + outcome.to_s
 			outcome.to_s == target_string
 		  rescue Exception => e
+		    puts "Rescued " + javascript_string
 		    true # If specified framework is not present then don't wait for it
 		  end
 		}).to eq true
