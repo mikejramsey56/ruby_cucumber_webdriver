@@ -8,7 +8,7 @@ module JavaScriptPageLoadHelpers
 	end
 	
 	def wait_for_angular(options = {})
-	    wait_for("return angular.element(document.body).injector().get(\'$http\').pendingRequests.length;", options)
+	    wait_for("return angular.element(document.body).injector().get(\'$http\').pendingRequests.length;", "0", options)
 	end
 	
 	def wait_for_prototype_ajax(options = {})
@@ -16,7 +16,7 @@ module JavaScriptPageLoadHelpers
 	end
 	
 	def wait_for_Yahoo_UI(options = {})
-	    wait_for(("var inProgress=0; for(var i=0; i &lt; YAHOO.util.Connect._transaction_id; i++) {if(YAHOO.util.Connect.isCallInProgress(i)) inProgress++;} return inProgress;", "0", options)
+	    wait_for("var inProgress=0; for(var i=0; i &lt; YAHOO.util.Connect._transaction_id; i++) {if(YAHOO.util.Connect.isCallInProgress(i)) inProgress++;} return inProgress;", "0", options)
 	end
 	
 	def wait_for(javascript_string, target_string, options = {})
