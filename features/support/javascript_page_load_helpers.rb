@@ -15,8 +15,10 @@ module JavaScriptPageLoadHelpers
 	    wait_for("return Ajax.activeRequestCount;", "0", options)
 	end
 	
-	def wait_for_Yahoo_UI(options = {})
-	    wait_for("var inProgress=0; for(var i=0; i &lt; YAHOO.util.Connect._transaction_id; i++) {if(YAHOO.util.Connect.isCallInProgress(i)) inProgress++;} return inProgress;", "0", options)
+	# As of 2014, W3Techs reports that YUI is used on 0.7% of all websites and is out of support. 
+	# This method has not been tested (can't find a test site).
+	def wait_for_yahoo_ui(options = {})
+	    wait_for("var inProgress=0; for(var i=0; i < YAHOO.util.Connect._transaction_id; i++) {if(YAHOO.util.Connect.isCallInProgress(i)) inProgress++;}" + "return inProgress;", "0", options)
 	end
 	
 	def wait_for(javascript_string, target_string, options = {})
@@ -25,9 +27,10 @@ module JavaScriptPageLoadHelpers
 		expect(wait.until {
 		  begin
 		    outcome = page.execute_script(javascript_string)
-			puts "outcome=" + outcome.to_s
+			# puts "outcome=" + outcome.to_s
 			outcome.to_s == target_string
 		  rescue Exception => e
+			puts e.message
 		    puts "Rescued " + javascript_string
 		    true # If specified framework is not present then don't wait for it
 		  end
