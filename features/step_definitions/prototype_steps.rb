@@ -39,5 +39,5 @@ When(/^I expand Ajax\.PeriodicalUpdater$/) do
 end
 
 Then(/^the Ajax\.PeriodicalUpdater class page is displayed$/) do
-  page.has_title? "Prototype  v1.7.3 API documentation | Ajax.PeriodicalUpdater"
+  page.should have_selector("title", :text => "Prototype  v1.7.3 API documentation | Ajax.PeriodicalUpdater")
 end
