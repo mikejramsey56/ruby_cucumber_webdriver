@@ -20,24 +20,3 @@ Then(/^I can learn about "([^"]*)"$/) do |link_description|
   wait_for_prototype_ajax
   wait_for_page_load_to_complete
 end
-
-Given(/^I am on the prototype ajax page$/) do
-  visit "http://api.prototypejs.org/ajax/"
-  
-  wait_for_prototype_ajax
-  wait_for_page_load_to_complete
-  
-  page.driver.browser.manage.delete_all_cookies
-  page.driver.browser.manage.window.maximize
-end
-
-When(/^I expand Ajax\.PeriodicalUpdater$/) do
-  find(:xpath, "//ul/li[1]/div/a[contains(text(),'Ajax.PeriodicalUpdater')]").click
-  
-  wait_for_prototype_ajax
-  wait_for_page_load_to_complete
-end
-
-Then(/^the Ajax\.PeriodicalUpdater class page is displayed$/) do
-  page.should have_selector("title", :text => "Prototype  v1.7.3 API documentation | Ajax.PeriodicalUpdater")
-end
