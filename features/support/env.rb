@@ -4,6 +4,7 @@ require 'capybara/dsl'
 require 'capybara/cucumber'
 require 'rspec/expectations'
 require 'selenium-webdriver'
+require 'page-object'
 
 Capybara.run_server = false
 #Capybara.default_driver = :selenium
@@ -19,4 +20,5 @@ Capybara.register_driver :firefox do |app|
  end
 
 Capybara.default_selector = :css
-World(Capybara::DSL)
+Capybara.default_max_wait_time = 30
+World(Capybara::DSL, PageObject)
